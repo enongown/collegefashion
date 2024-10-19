@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Fashion</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Main container */
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 10px;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Card styling */
+        .card {
+            background-color: #fff;
+            width: 90%;
+            max-width: 500px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 0px;
+            text-align: center;
+        }
+
+        .bannercard {
+            background-color: #ffffff;
+            color: #fff;
+            width: 90%;
+            max-width: 500px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 0px;
+            text-align: center;
+            background-image: url(pics/banner.png);
+            background-size: cover;
+            background-position: center;
+            background-position-y: 30px;
+            background-repeat: no-repeat;
+        }
+
+        /* Header styling */
+        .bannercard h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .subheader {
+            font-size: 18px;
+            color: #f4f4f4;
+        }
+
+        /* Scrollable product container */
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hoodie item */
+        .hoodie-item {
+            min-width: 150px;
+            height: 200px;
+            background-color: #eee;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hoodie-item img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* Price section */
+        .price {
+            font-size: 16px;
+            color: #666;
+            text-decoration: line-through;
+        }
+
+        .discount-price {
+            color: #f5a623;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        /* Button styling */
+        .buy-button {
+            background-color: #fff;
+            border: 1px solid #d5d9d9;
+            border-radius: 8px;
+            box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+            box-sizing: border-box;
+            color: #0f1111;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Amazon Ember", sans-serif;
+            font-size: 13px;
+            line-height: 29px;
+            padding: 0 10px 0 11px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            vertical-align: middle;
+            width: 100px;
+            height: 40px;
+        }
+
+        .buy-button:hover {
+            background-color: #999999;
+            color: #fff;
+        }
+
+        @font-face {
+            font-family: 'quagi';
+            /* You can choose any name you like */
+            src: url('fonts/Quagi.ttf') format('truetype');
+            /* Adjust the path as necessary */
+            font-weight: normal;
+            /* Specify the font weight */
+            font-style: normal;
+            /* Specify the font style */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bannercard">
+        <h1 style="margin-top: -5px; font-family: 'Quagi', sans-serif; color: rgba(111, 111, 111, 0.6);	
+        text-shadow: 2px 1px 0px #fff, 3px 3px 0px rgba(72, 72, 72, 0.15);
+         ">
+            College Fashion</h1>
+        <h1 style="color: #ffffff; background-color: #6666666f; margin-top: 30%; ">DRESS THAT MAKE BORING LECTURES FUN!
+        </h1>
+
+    </div>
+    <div class="subheader" style="color: #ffffff; background-color: #6666666f; 	
+text-shadow: 3px 3px 0px rgba(0,0.2,0,0.2); ">Man & Woman
+        Fashion!</div>
+    <!-- Product card 1 -->
+    <div class="card">
+        <div class="scroll-container">
+            <div class="hoodie-item">
+                <img src="products/product1/image copy.png" alt="Hoodie 1">
+            </div>
+            <div class="hoodie-item">
+                <img src="products/product1/image.png" alt="Hoodie 2">
+            </div>
+        </div>
+        <div class="price">Rs 799</div>
+        <div class="discount-price">Rs 499</div>
+        <button class="buy-button">BUY NOW</button>
+    </div>
+
+    <!-- Product card 2 -->
+    <div class="card">
+        <div class="scroll-container">
+            <div class="hoodie-item">
+                <img src="products/product2/image copy.png" alt="Hoodie 1">
+            </div>
+            <div class="hoodie-item">
+                <img src="products/product2/image.png" alt="Hoodie 2">
+            </div>
+        </div>
+        <div class="price">Rs 1299</div>
+        <div class="discount-price">Rs 999</div>
+        <button class="buy-button">BUY NOW</button>
+    </div>
+</body>
+
+</html>
