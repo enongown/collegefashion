@@ -138,6 +138,77 @@
             color: #fff;
         }
 
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 0px;
+            text-align: center;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        .close-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .close-button:hover {
+            background-color: #d32f2f;
+        }
+
+        .proceed-button {
+            background-color: #13aa52;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .proceed-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Form elements */
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
         @font-face {
             font-family: 'quagi';
             /* You can choose any name you like */
@@ -153,18 +224,16 @@
 
 <body>
     <div class="bannercard">
-        <h1 style="margin-top: -5px; font-family: 'Quagi', sans-serif; color: rgba(111, 111, 111, 0.6);	
-        text-shadow: 2px 1px 0px #fff, 3px 3px 0px rgba(72, 72, 72, 0.15);
-         ">
-            College Fashion</h1>
-        <h1 style="color: #ffffff; background-color: #6666666f; margin-top: 30%; ">DRESS THAT MAKE BORING LECTURES FUN!
+        <h1
+            style="margin-top: -5px; font-family: 'Quagi', sans-serif; color: rgba(111, 111, 111, 0.6); text-shadow: 2px 1px 0px #fff, 3px 3px 0px rgba(72, 72, 72, 0.15);">
+            College Fashion
         </h1>
-
+        <h1 style="color: #ffffff; background-color: #6666666f; margin-top: 30%;">DRESS THAT MAKE BORING LECTURES FUN!
+        </h1>
     </div>
-    <div class="subheader" style="color: #ffffff; background-color: #6666666f; 	
-text-shadow: 3px 3px 0px rgba(0,0.2,0,0.2); ">Man & Woman
-        Fashion!</div>
-    <!-- Product card 1 -->
+    <div class="subheader" style="color: #ffffff; background-color: #6666666f;">Man & Woman Fashion!</div>
+
+    <!-- Product cards -->
     <div class="card">
         <div class="scroll-container">
             <div class="hoodie-item">
@@ -175,11 +244,10 @@ text-shadow: 3px 3px 0px rgba(0,0.2,0,0.2); ">Man & Woman
             </div>
         </div>
         <div class="price">Rs 799</div>
-        <div class="discount-price">Rs 499</div>
-        <button class="buy-button">BUY NOW</button>
+        <div class="discount-price">Rs. 499/-</div>
+        <button class="buy-button" onclick="openModal('Mens fleece hoodie', 499)">BUY NOW</button>
     </div>
 
-    <!-- Product card 2 -->
     <div class="card">
         <div class="scroll-container">
             <div class="hoodie-item">
@@ -191,8 +259,111 @@ text-shadow: 3px 3px 0px rgba(0,0.2,0,0.2); ">Man & Woman
         </div>
         <div class="price">Rs 1299</div>
         <div class="discount-price">Rs 999</div>
-        <button class="buy-button">BUY NOW</button>
+        <button class="buy-button"
+            onclick="openModal('First Quality Pullover Hoodie Sweatshirt Apparel Unisex', 999)">BUY NOW</button>
     </div>
+
+    <!-- Disclaimers and news -->
+
+    <div class="card" style=" font-size: 5px;">
+        We’re thrilled to have you here as we embark on this exciting journey. Currently in its early stages, our site
+        is designed to enhance your daily college life with quality and fashionable products. As we continue to develop,
+        you can expect to see new items added daily, all tailored to make your college experience more vibrant and
+        enjoyable.
+
+        Rest assured, we are committed to providing a fully trusted service, prioritizing your satisfaction and needs.
+        Stay tuned as we grow and improve—exciting things are on the way!
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal" id="buyModal">
+        <div class="modal-content">
+            <h2>CONFIRM PURCHASE</h2>
+            <p>Please fill out the details:</p>
+            <div class="form-group">
+                <label for="product">Product:</label>
+                <input type="text" id="product" readonly>
+            </div>
+            <div class="form-group">
+                <label for="size">Select Size:</label>
+                <select id="size">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hostel">Select Hostel:</label>
+                <select id="hostel">
+                    <option value="Papum">Papum</option>
+                    <option value="Lohit 1">Lohit 1</option>
+                    <option value="Lohit 2">Lohit 2</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+            <button class="proceed-button" onclick="proceedPayment()">Proceed to Payment</button>
+            <button class="close-button" onclick="closeModal()">CANCEL</button>
+        </div>
+    </div>
+
+    <script>
+        let selectedPrice = 0;
+
+        // Function to open the modal
+        function openModal(productName, price) {
+            document.getElementById("buyModal").style.display = "flex";
+            document.getElementById("product").value = productName;
+            selectedPrice = price; // Store the price of the selected product
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("buyModal").style.display = "none";
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function (event) {
+            if (event.target == document.getElementById("buyModal")) {
+                closeModal();
+            }
+        }
+
+        // Function to handle proceed button click
+        function proceedPayment() {
+            const product = document.getElementById('product').value;
+            const size = document.getElementById('size').value;
+            const hostel = document.getElementById('hostel').value;
+            const phone = document.getElementById('phone').value.trim();
+            const name = document.getElementById('name').value.trim();
+
+            if (product === '' || size === '' || hostel === '' || phone === '' || name === '') {
+                alert("Please fill up the details so that our delivery partners can smoothly carry out your purchase.");
+            } else {
+                // Construct UPI payment URL specifically for PhonePe
+                const upiId = 'enongown@okhdfcbank'; // Replace with your actual UPI ID
+                const amount = selectedPrice; // Use the selected price
+                const transactionNote = `Payment for ${product} (Size: ${size}, Hostel: ${hostel}, Phone: ${phone}, Name: ${name})`;
+
+                // PhonePe specific UPI link with package name for PhonePe
+                const phonePeLink = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(name)}&am=${encodeURIComponent(amount)}&tn=${encodeURIComponent(transactionNote)}&cu=INR&tr=${encodeURIComponent(product)}&package=com.phonepe.app`;
+
+                // Redirect to PhonePe
+                window.location.href = phonePeLink;
+            }
+        }
+
+
+
+    </script>
 </body>
 
 </html>
